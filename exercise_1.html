@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Decoding invoice</title>
+
+    <link href="CSS/style_1.css" type="text/css" rel="stylesheet"/>
+
+</head>
+<body>
+
+<div class="row">
+    <div class="col-5 col-s-5">
+        Virtual bar code : <input id="virtual_bar_code" type="text" value="479440520200360820048831500000000868516259619897100612">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6 col-s-6">
+        <button id="decode">Decode</button>
+    </div>
+    <div class="col-6 col-s-6">
+        <button id="hide_button">Hide</button>
+    </div>
+</div>
+
+<div id="bar_code_info">
+    <div class="row">
+        <div class="col-6 col-s-6">
+            <div>
+                Payee's IBAN :
+                <span id="payeesIBAN"></span>
+            </div>
+            <div>
+                Reference :
+                <span id="reference"></span>
+            </div>
+        </div>
+
+        <div class="col-6 col-s-6">
+            <div>
+                Amount :
+                <span id="amount"></span>
+            </div>
+            <div>
+                Due date :
+                <span id="due_date"></span>
+            </div>
+        </div>
+    </div>
+    <img id="bar_code_picture"/>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.0/dist/barcodes/JsBarcode.code128.min.js"></script>
+<script src="JavaScript/JS_1.js"></script>
+</body>
+</html>
