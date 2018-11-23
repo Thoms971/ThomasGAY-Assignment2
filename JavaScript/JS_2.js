@@ -7,7 +7,7 @@ function search(){
     if (!zip_code) {
         alert("Enter a ZIP CODE");
     }else{
-        let url = "http://api.zippopotam.us/"+ country + '/'+ zip_code;
+        let url = "https://api.zippopotam.us/"+ country + '/'+ zip_code;
 
         $.ajax({
             url: url,
