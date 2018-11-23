@@ -60,6 +60,21 @@ div {
     margin-bottom: 15px;
 }
 
+table, td, th {
+    border: 1px solid black;
+    border-collapse: collapse;
+
+}
+
+td {
+    text-align: left;
+}
+
+thead, th {
+    text-align: left;
+    background-color: lightgrey;
+    font-weight: bold;
+}
 
 #mapid {
     height: 500px;

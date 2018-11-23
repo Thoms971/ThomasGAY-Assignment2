@@ -17,15 +17,23 @@ function search(){
                 //Stackoverflow link
                 //https://stackoverflow.com/questions/41256026/clear-marker-layers-leaflet
                 markers.clearLayers();
+                let table_content = '';
                 for(let i=0 ; i<map_points.places.length; i++){
                     let point = map_points.places[i];
                     let marker = L.marker([point["latitude"],point["longitude"]]).addTo(markers);
                     marker.bindPopup("<b>"+ point["place name"]+"</b><br/>");
 
                     places_found.push([point["latitude"],point["longitude"]]);
-                }
-                markers.addTo(mymap);
 
+                    table_content += "<tr>" +
+                        "<td>" + point["place name"] + "</td>" +
+                        "<td>"+ point["latitude"] + "</td>" +
+                        "<td>" + point["longitude"] + "</td>" +
+                        "</tr>";
+                }
+                $('#table_content').html(table_content);
+
+                markers.addTo(mymap);
                 //leaflet documentation
                 //https://leafletjs.com/reference-1.3.4.html#latlngbounds
                 let bounds = L.latLngBounds(places_found);
