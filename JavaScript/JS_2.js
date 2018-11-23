@@ -1,4 +1,5 @@
 var mymap;
+var markers= L.layerGroup();
 
 function search(){
     let zip_code = $('#zip_code').val();
@@ -12,15 +13,27 @@ function search(){
             url: url,
             method: 'get',
             success: function(map_points){
-                //TODO : clear markers
+                let places_found = [];
+                //Stackoverflow link
+                //https://stackoverflow.com/questions/41256026/clear-marker-layers-leaflet
+                markers.clearLayers();
                 for(let i=0 ; i<map_points.places.length; i++){
                     let point = map_points.places[i];
-                    let marker = L.marker([point["latitude"],point["longitude"]]).addTo(mymap);
-                    marker.bindPopup("<b>"+ point["place name"]+"</b><br/>").openPopup();
-                    markers.push(marker);
-                }
+                    let marker = L.marker([point["latitude"],point["longitude"]]).addTo(markers);
+                    marker.bindPopup("<b>"+ point["place name"]+"</b><br/>");
 
+                    places_found.push([point["latitude"],point["longitude"]]);
+                }
+                markers.addTo(mymap);
+
+                //leaflet documentation
+                //https://leafletjs.com/reference-1.3.4.html#latlngbounds
+                let bounds = L.latLngBounds(places_found);
+                mymap.fitBounds(bounds);
             },
+            error: function () {
+                alert("Didn't find place corresponding to " + country + "/" + zip_code);
+            }
         })
     }
 
