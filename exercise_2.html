@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zip code location on a map</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+          integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+          crossorigin=""/>
+
+    <link href="CSS/style_2.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<main>
+    <div class="rows">
+
+        <div class="col-4">
+            <div>
+                <label for="country">
+                    Select your country :
+                </label>
+            </div>
+
+            <div>
+                <label for="zip_code">
+                    ZIP Code :
+                </label>
+            </div>
+
+            <div></div>
+        </div>
+
+        <div class="col-6">
+            <div>
+                <select id="country">
+                    <option value="fi">Finland</option>
+                    <option value="fr">France</option>
+                    <option value="de">Germany</option>
+                    <option value="se">Sweden</option>
+                </select>
+            </div>
+
+            <div>
+                <input id="zip_code" type="text" value="66300"/>
+            </div>
+
+            <div>
+                <button id="search">Search</button>
+            </div>
+        </div>
+    </div>
+
+<div class="row">
+    <div class="col-12" id="mapid"></div>
+</div>
+
+</main>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+        integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+        crossorigin=""></script>
+<script src="JavaScript/JS_2.js"></script>
+</body>
+</html>

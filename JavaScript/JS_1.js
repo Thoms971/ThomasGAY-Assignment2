@@ -17,7 +17,7 @@ function decode () {
         alert("Virtual bar code is not correct (length different of 54)");
     } else if(isNaN(cad)){
         alert("Virtual bar code is not a number");
-    } else {
+    } else {//TODO : Blank for IDAN and Reference 
         $('#payeesIBAN').html(cad.substring(1,16));
         $('#amount').html(Number(cad.substring(17,23) + "." + cad.substring(23,25))+"€");
 
