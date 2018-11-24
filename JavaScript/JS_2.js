@@ -1,5 +1,22 @@
 var mymap;
 var markers= L.layerGroup();
+var search_history;
+
+function update_top_ten(){
+    //https://developer.mozilla.org/fr/docs/Apprendre/JavaScript/Client-side_web_APIs/Client-side_storage
+    //https://stackoverflow.com/questions/3357553/how-do-i-store-an-array-in-localstorage
+    search_history = JSON.parse(localStorage.getItem("search_history"));
+    console.log(search_history);
+    if (search_history !== null) {
+        let list_searches = "";
+        for (let i = 0; i < search_history.length; i++) {
+            list_searches += "<li>" + search_history[i] + "</li>";
+        }
+        $('#history_list').html(list_searches);
+    } else {
+        search_history = [];
+    }
+}
 
 function search(){
     let zip_code = $('#zip_code').val();
@@ -14,6 +31,13 @@ function search(){
             method: 'get',
             success: function(map_points){
                 let places_found = [];
+                console.log(search_history);
+                search_history.unshift(country + "-" + zip_code);
+                if (search_history.length > 10){
+                    search_history.pop();
+                }
+                localStorage.setItem("search_history", JSON.stringify(search_history));
+                update_top_ten();
                 //Stackoverflow link
                 //https://stackoverflow.com/questions/41256026/clear-marker-layers-leaflet
                 markers.clearLayers();
@@ -44,9 +68,6 @@ function search(){
             }
         })
     }
-
-
-
 }
 
 window.onload = function() {
@@ -60,4 +81,5 @@ window.onload = function() {
     }).addTo(mymap);
 
     $('#search').on('click',search);
+    update_top_ten();
 }
