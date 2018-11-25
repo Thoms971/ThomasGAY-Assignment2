@@ -10,79 +10,81 @@
 
     <link href="CSS/style_2.css" type="text/css" rel="stylesheet"/>
 </head>
-<body>
-<div>
-    <div class="rows">
 
-        <div class="col-4">
-            <div>
-                <label for="country">
-                    Select your country :
-                </label>
-            </div>
+<div class="rows">
 
-            <div>
-                <label for="zip_code">
-                    ZIP Code :
-                </label>
-            </div>
-
-            <div></div>
+    <div class="col-4">
+        <div>
+            <label for="country">
+                Select your country :
+            </label>
         </div>
 
-        <div class="col-6">
-            <div>
-                <select id="country">
-                    <option value="fi">Finland</option>
-                    <option value="fr">France</option>
-                    <option value="de">Germany</option>
-                    <option value="se">Sweden</option>
-                </select>
-            </div>
+        <div>
+            <label for="zip_code">
+                ZIP Code :
+            </label>
+        </div>
 
-            <div>
-                <input id="zip_code" type="text" value="66300"/>
-            </div>
+        <div></div>
+    </div>
 
-            <div>
-                <button id="search">Search</button>
-            </div>
+    <div class="col-6">
+        <div>
+            <select id="country">
+                <option value="fi">Finland</option>
+                <option value="fr">France</option>
+                <option value="de">Germany</option>
+                <option value="se">Sweden</option>
+            </select>
+        </div>
+
+        <div>
+            <input id="zip_code" type="text" value="66300"/>
+        </div>
+
+        <div>
+            <button id="search">Search</button>
         </div>
     </div>
 
-    <div>
+    <div class="col-2" id="history_div">
         <label for="history_list">History of the last 10 searches</label>
         <ul id="history_list">
 
         </ul>
     </div>
 
-    <div class="row">
-        <div class="col-12">
-            <table style="width:100%">
-                <thead>
-                <tr>
-                    <th>Place name</th>
-                    <th>Longitude</th>
-                    <th>Latitude</th>
-                </tr>
-                </thead>
-                <tbody id="table_content"></tbody>
-            </table>
-        </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-12">
+        <table style="width:100%">
+            <thead>
+            <tr>
+                <th>Place name</th>
+                <th>Longitude</th>
+                <th>Latitude</th>
+            </tr>
+            </thead>
+            <tbody id="table_content"></tbody>
+        </table>
     </div>
+</div>
 
-    <div class="row">
-        <div class="col-12" id="mapid"></div>
-    </div>
+<div class="row">
+    <div class="col-12" id="mapid"></div>
+</div>
 
-    </main>
+</main>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
-            integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
-            crossorigin=""></script>
-    <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js"></script>
-    <script src="JavaScript/JS_2.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+        integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+        crossorigin=""></script>
+<script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js"></script>
+<script src="JavaScript/JS_2.js"></script>
 </body>
 </html>

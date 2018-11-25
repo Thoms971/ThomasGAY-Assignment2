@@ -79,3 +79,9 @@ thead, th {
 #mapid {
     height: 500px;
 }
+
+#history_div {
+    float: right;
+    border: 1px solid black;
+    background: antiquewhite;
+}
