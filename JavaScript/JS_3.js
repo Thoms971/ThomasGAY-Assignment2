@@ -1,7 +1,7 @@
 var mymap;
 var routes_layer = L.layerGroup();
 var buses_layer = L.layerGroup();
-var base_url = "http://data.foli.fi/gtfs/";
+var base_url = "https://data.foli.fi/gtfs/";
 
 var bus_icon = L.icon({
     iconUrl: 'Images/yellow-bus.png',
@@ -30,7 +30,7 @@ function list_lines() {
 function show_buses() {
     let route_name = $('#line').find('option:selected').attr('name');
     console.log(route_name);
-    let url_b = 'http://data.foli.fi/siri/vm/';
+    let url_b = 'https://data.foli.fi/siri/vm/';
     $.ajax({
         url: url_b,
         method: 'get',
@@ -90,7 +90,7 @@ function draw_route(shape_id) {
             buses_layer.clearLayers();
             routes_layer.clearLayers();
 
-            let polyline = L.polyline(route, {color: '#FFFF00'});
+            let polyline = L.polyline(route, {color: '#ffff00'});
             routes_layer
                 .addLayer(polyline)
                 .addTo(mymap);
